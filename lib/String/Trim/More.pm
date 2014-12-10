@@ -17,6 +17,8 @@ our @EXPORT_OK = qw(
                        rtrim_lines
                        trim_lines
                        trim_blank_lines
+
+                       ellipsis
                );
 
 sub ltrim {
@@ -63,6 +65,18 @@ sub trim_blank_lines {
     s/\A(?:\n\s*)+//;
     s/(?:\n\s*){2,}\z/\n/;
     $_;
+}
+
+sub ellipsis {
+    my ($str, $maxlen, $ellipsis) = @_;
+    $maxlen   //= 80;
+    $ellipsis //= "...";
+
+    if (length($str) <= $maxlen) {
+        return $str;
+    } else {
+        return substr($str, 0, $maxlen-length($ellipsis)) . $ellipsis;
+    }
 }
 
 1;
@@ -115,6 +129,12 @@ ltrim_lines + rtrim_lines.
 
 Trim blank lines at the beginning and the end. Won't trim blank lines in the
 middle. Blank lines include lines with only whitespaces in them.
+
+=head2 ellipsis($str[, $maxlen, $ellipsis]) => STR
+
+Return $str unmodified if $str's length is less than $maxlen (default 80).
+Otherwise cut $str to ($maxlen - length($ellipsis)) and append $ellipsis
+(default '...') at the end.
 
 
 =head1 SEE ALSO
