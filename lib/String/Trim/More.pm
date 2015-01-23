@@ -139,6 +139,10 @@ Otherwise cut $str to ($maxlen - length($ellipsis)) and append $ellipsis
 
 =head1 SEE ALSO
 
-L<String::Trim>, L<Text::Trim>, L<String::Strip>, L<String::Util>.
+For trim functions: L<String::Trim>, L<Text::Trim>, L<String::Strip>,
+L<String::Util>.
+
+For ellipsis/eliding: L<Text::Elide> (elide at word boundaries),
+L<String::Elide> (elide with more options).
 
 =cut
