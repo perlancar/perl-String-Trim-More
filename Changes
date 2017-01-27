@@ -1,3 +1,10 @@
+0.03    2017-01-27 (PERLANCAR)
+
+	- No functional changes.
+
+        - [doc] Mention String::Elide::Parts and Text::Elide.
+
+
 0.02    2014-12-10 (PERLANCAR)
 
 	- Add ellipsis() from SHARYANTO-String-Util.
